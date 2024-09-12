@@ -1,0 +1,234 @@
+<html>
+   <head>
+      <!-- Basic -->
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <!-- Mobile Metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <!-- Site Metas -->
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <link rel="shortcut icon" href="images/favicon.png" type="">
+      <title>Sign Language</title>
+      <!-- bootstrap core css -->
+      <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+      <!-- font awesome style -->
+      <link href="../static/css/font-awesome.min.css" rel="stylesheet" />
+      <!-- Custom styles for this template -->
+      <link href="../static/css/style.css" rel="stylesheet" />
+      <!-- responsive style -->
+      <link href="../static/css/responsive.css" rel="stylesheet" />
+
+<script language="javascript">
+		 function getSubmit()
+		 {
+		 document.getElementById("form1").submit(); 
+		 }
+		 </script>
+
+	  
+	  	<script>
+	function show()
+	{
+	document.getElementById("x1").style.display="block";
+	document.getElementById("x2").style.display="none";
+	}
+	/////////////
+	
+		var result = document.getElementById('result');
+  
+		function startConverting () {
+		
+		document.getElementById("x1").style.display="none";
+	document.getElementById("x2").style.display="block";
+
+		if('webkitSpeechRecognition' in window) {
+			var speechRecognizer = new webkitSpeechRecognition();
+			speechRecognizer.continuous = true;
+			speechRecognizer.interimResults = true;
+			speechRecognizer.lang = 'en-US';
+			speechRecognizer.start();
+
+			var finalTranscripts = '';
+
+			speechRecognizer.onresult = function(event) {
+				var interimTranscripts = '';
+				for(var i = event.resultIndex; i < event.results.length; i++){
+					var transcript = event.results[i][0].transcript;
+					transcript.replace("\n", "<br>");
+					if(event.results[i].isFinal) {
+						finalTranscripts += transcript;
+						document.form1.res.value=finalTranscripts;
+					}else{
+						interimTranscripts += transcript;
+					}
+				}
+				result.innerHTML = finalTranscripts + '<span style="color: #999">' + interimTranscripts + '</span>';
+			};
+			speechRecognizer.onerror = function (event) {
+
+			};
+			
+			getPost();
+			
+		}else {
+			result.innerHTML = 'Your browser is not supported. Please download Google chrome or Update your Google chrome!!';
+		}	
+		}
+	
+	</script> 
+   </head>
+   <body class="sub_page">
+      <div class="hero_area">
+         <!-- header section strats -->
+         <header class="header_section">
+            <div class="container">
+               <nav class="navbar navbar-expand-lg custom_nav-container ">
+                  <a class="navbar-brand" href="index.html"><img width="250" src="../static/images/d1.png" alt="#" /></a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class=""> </span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                           <a class="nav-link" href="/">Home</a>
+                        </li>
+                      
+                        <li class="nav-item">
+                           <a class="nav-link" href="/test_cam">Sign to Voice</a>
+                        </li>
+						<li class="nav-item">
+                           <a class="nav-link" href="/test_voice">Voice to Sign</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="/login">Admin</a>
+                        </li>
+                        
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </header>
+         <!-- end header section -->
+      </div>
+      <!-- inner page section -->
+      <section class="inner_page_head">
+         <div class="container_fuild">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="full">
+                     <h3>Voice to Sign</h3>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- end inner page section -->
+      <!-- why section -->
+      <section class="why_section layout_padding">
+         <div class="container">
+         
+            <div class="row">
+               <div class="col-lg-8 offset-lg-2">
+                  <div class="full">
+				  <div align="center"></div>
+				  
+			
+				  
+				  
+                     <form method="post" name="form1" id="form1" action="">
+					 
+					 <div class="row">
+					 	<div class="col-md-3">
+						</div>
+						<div class="col-md-6" align="center">
+							{% if act=="1" %}
+							<h3>Avatar Generation</h3>
+							<img src="../static/upload/{{img}}" class="img-fluid" style="border:3px solid #FF3300">
+							{% else %}
+							<h3>SR and Speech Synthesis</h3>
+							<img src="../static/images/ava.jpg" class="img-fluid" style="border:3px solid #FF3300">
+							{% endif %}
+						</div>
+						
+					 </div>
+					 
+					 
+					 
+					 
+					 <br>
+					 <div class="row">
+					 
+					 <div class="col-md-3">
+						</div>
+					 
+					 	{% if act=="1" %}
+						<div class="col-md-6" align="center">
+						<h5>{{vtext}}</h5>
+						</div>
+						{% else %}
+					 	<div class="col-md-1">
+					 	<div id="result"></div>
+							
+								<div id="x1">
+							 <a href="javascript:startConverting();"><i class="fa fa-microphone btn btn-danger" aria-hidden="true"></i></a>
+								</div>
+							
+									<div id="x2" style="display:none">
+								<a href="javascript:show();"> <img src="../static/mic-animate.gif"></a>
+								</div>
+						</div>
+						<div class="col-md-5">
+                      		 <input type="text" id="res" placeholder="Voice Message" name="message" required />
+						</div>
+                       {% endif %}
+					
+					 	
+						<div class="col-md-4">
+						
+						
+						</div>
+					</div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+	  {% if act=="1" %}
+						<script>
+//Using setTimeout to execute a function after 5 seconds.
+setTimeout(function () {
+   //Redirect with JavaScript
+   window.location.href= '/test_voice';
+}, 8000);
+</script>
+						{% else %}
+						<script>
+//Using setTimeout to execute a function after 5 seconds.
+setTimeout(function () {
+   //Redirect with JavaScript
+  document.getElementById("form1").submit(); 
+}, 10000);
+</script>
+						{% endif %}
+	   <div class="cpy_">
+         <p class="mx-auto">Sign Language <a href="https://html.design/"></a><br>
+         
+            <a href="https://themewagon.com/" target="_blank"></a>
+         
+         </p>
+      </div>
+    
+      <!-- footer section -->
+      <!-- jQery -->
+      <script src="../static/js/jquery-3.4.1.min.js"></script>
+      <!-- popper js -->
+      <script src="../static/js/popper.min.js"></script>
+      <!-- bootstrap js -->
+      <script src="../static/js/bootstrap.js"></script>
+      <!-- custom js -->
+      <script src="../static/js/custom.js"></script>
+   </body>
+</html>

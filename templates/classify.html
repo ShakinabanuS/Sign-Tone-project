@@ -1,0 +1,193 @@
+<html>
+   <head>
+      <!-- Basic -->
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <!-- Mobile Metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <!-- Site Metas -->
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <link rel="shortcut icon" href="images/favicon.png" type="">
+      <title>Sign Language</title>
+      <!-- bootstrap core css -->
+      <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+      <!-- font awesome style -->
+      <link href="../static/css/font-awesome.min.css" rel="stylesheet" />
+      <!-- Custom styles for this template -->
+      <link href="../static/css/style.css" rel="stylesheet" />
+      <!-- responsive style -->
+      <link href="../static/css/responsive.css" rel="stylesheet" />
+   </head>
+   <body class="sub_page">
+      <div class="hero_area">
+         <!-- header section strats -->
+         <header class="header_section">
+            <div class="container">
+               <nav class="navbar navbar-expand-lg custom_nav-container ">
+                  <a class="navbar-brand" href="index.html"><img width="250" src="../static/images/d1.png" alt="#" /></a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class=""> </span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                           <a class="nav-link" href="/admin">Home</a>
+                        </li>
+                      
+                        <li class="nav-item">
+                           <a class="nav-link" href="/upload">Upload</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                        
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </header>
+         <!-- end header section -->
+      </div>
+      <!-- inner page section -->
+      <section class="inner_page_head">
+         <div class="container_fuild">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="full">
+                     <h3>Training Phase</h3>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- end inner page section -->
+      <!-- why section -->
+      <section class="why_section layout_padding">
+         <div class="container">
+         <h3 align="center">Classification</h3>
+            <div class="row">
+				<div class="col-lg-2">
+				</div>
+               <div class="col-lg-8">
+                
+			  
+                    <h4>{{cname[0]}}</h4>
+				<div>
+				{% for img in data2[0] %}
+				<img src="../static/dataset/{{img}}" width="80" height="80">
+				{% endfor %}
+				</div>
+				<p>&nbsp;</p>
+				
+				<h4>{{cname[1]}}</h4>
+				<div>
+				{% for img in data2[1] %}
+				<img src="../static/dataset/{{img}}" width="80" height="80">
+				{% endfor %}
+				</div>
+				<p>&nbsp;</p>
+				
+				<h4>{{cname[2]}}</h4>
+				<div>
+				{% for img in data2[2] %}
+				<img src="../static/dataset/{{img}}" width="80" height="80">
+				{% endfor %}
+				</div>
+				<p>&nbsp;</p>
+				
+				<h4>{{cname[3]}}</h4>
+				<div>
+				{% for img in data2[3] %}
+				<img src="../static/dataset/{{img}}" width="80" height="80">
+				{% endfor %}
+				</div>
+				<p>&nbsp;</p>
+				
+				<h4>{{cname[4]}}</h4>
+				<div>
+				{% for img in data2[4] %}
+				<img src="../static/dataset/{{img}}" width="80" height="80">
+				{% endfor %}
+				</div>
+				<p>&nbsp;</p>
+				
+				<h4>{{cname[5]}}</h4>
+				<div>
+				{% for img in data2[5] %}
+				<img src="../static/dataset/{{img}}" width="80" height="80">
+				{% endfor %}
+				</div>
+				<p>&nbsp;</p>
+				
+				<h4>{{cname[6]}}</h4>
+				<div>
+				{% for img in data2[6] %}
+				<img src="../static/dataset/{{img}}" width="80" height="80">
+				{% endfor %}
+				</div>
+				<p>&nbsp;</p>
+				
+				<h4>{{cname[7]}}</h4>
+				<div>
+				{% for img in data2[7] %}
+				<img src="../static/dataset/{{img}}" width="80" height="80">
+				{% endfor %}
+				</div>
+				<p>&nbsp;</p>
+				
+				
+				<p>&nbsp;</p>
+				
+			
+			
+			<p><img src="../static/trained/tclass.png" width="800" height="400"></p>
+			
+			<h4>Performance Analysis</h4>
+			<h5>SignNet Model - Build and Trained</h5>
+						   <table border="0" cellspacing="10">
+						  
+						   <tr>
+						   <td>
+						   <p>Model Accuracy</p>
+						   <img src="../static/trained/graph3.png" width="400" height="400">
+						   </td>
+						   
+						    <td>
+						   <p>Model Loss</p>
+						   <img src="../static/trained/graph4.png" width="400" height="400">
+						   </td>
+						   </tr>
+						   <tr>
+						  
+						   </tr>
+						   </table>
+						   <p>&nbsp;</p>
+			
+
+               
+               </div>
+            </div>
+         </div>
+      </section>
+	  
+	   <div class="cpy_">
+         <p class="mx-auto">Sign Language <a href="https://html.design/"></a><br>
+         
+            <a href="https://themewagon.com/" target="_blank"></a>
+         
+         </p>
+      </div>
+    
+      <!-- footer section -->
+      <!-- jQery -->
+      <script src="../static/js/jquery-3.4.1.min.js"></script>
+      <!-- popper js -->
+      <script src="../static/js/popper.min.js"></script>
+      <!-- bootstrap js -->
+      <script src="../static/js/bootstrap.js"></script>
+      <!-- custom js -->
+      <script src="../static/js/custom.js"></script>
+   </body>
+</html>
